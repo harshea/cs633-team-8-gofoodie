@@ -1,0 +1,27 @@
+2021-02-05 03:19:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ROLE" not found; SQL statement:
+select role0_.id as id1_0_, role0_.role as role2_0_ from role role0_ where role0_.role=? [42102-200]
+2021-02-05 03:20:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ROLE" not found; SQL statement:
+select role0_.id as id1_0_, role0_.role as role2_0_ from role role0_ where role0_.role=? [42102-200]
+2021-02-05 03:23:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ROLE" not found; SQL statement:
+select role0_.id as id1_0_, role0_.role as role2_0_ from role role0_ where role0_.role=? [42102-200]
+2021-02-05 03:25:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERROLE" not found; SQL statement:
+select role0_.id as id1_1_, role0_.role as role2_1_ from userrole role0_ where role0_.role=? [42102-200]
+2021-02-05 03:27:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERROLE" not found; SQL statement:
+select role0_.id as id1_1_, role0_.role as role2_1_ from userrole role0_ where role0_.role=? [42102-200]
+2021-02-05 16:19:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERROLE" not found; SQL statement:
+select role0_.id as id1_1_, role0_.userRole as userrole2_1_ from userrole role0_ where role0_.userRole=? [42102-200]
+2021-02-05 16:28:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERROLE" not found; SQL statement:
+select role0_.id as id1_1_, role0_.userRole as userrole2_1_ from userrole role0_ where role0_.userRole=? [42102-200]
+2021-02-05 16:29:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERROLE" not found; SQL statement:
+select role0_.id as id1_1_, role0_.userRole as userrole2_1_ from userrole role0_ where role0_.userRole=? [42102-200]
+2021-02-05 16:33:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ROLE" not found; SQL statement:
+select role0_.id as id1_0_, role0_.role as role2_0_ from role role0_ where role0_.role=? [42102-200]
