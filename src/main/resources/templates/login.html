@@ -9,8 +9,12 @@
 </head>
 <body class="text-center">
 <div layout:fragment="content">
+
   <form class="form-signin" th:action="@{/login}" method="post">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <img class="h3 mb-3 font-weight-normal" src="images/foodtruck.jpg" alt="FoodTruck" >
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in
+
+    </h1>
     <div th:if="${param.error}">
       Invalid email and password.
     </div>

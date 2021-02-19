@@ -25,7 +25,8 @@ public class User {
   private String password;
   /* This is to store whether user is still active. */
   private Boolean enabled;
-
+  /* This is to store whether user is owner or customer. */
+  private String userType;
 
 
   @ManyToMany
@@ -72,5 +73,25 @@ public class User {
 
   public void setRoles(Set<Role> roles) {
     this.roles = roles;
+  }
+
+  public String getUserType() {
+    return userType;
+  }
+
+  public void setUserType(String userType) {
+    this.userType = userType;
+  }
+
+  @Override
+  public String toString() {
+    return "User{" +
+        "id=" + id +
+        ", email='" + email + '\'' +
+        ", password='" + password + '\'' +
+        ", enabled=" + enabled +
+        ", userType='" + userType + '\'' +
+        ", roles=" + roles +
+        '}';
   }
 }

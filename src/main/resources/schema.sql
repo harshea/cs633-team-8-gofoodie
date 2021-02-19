@@ -7,6 +7,14 @@ CREATE TABLE user (
   enabled Boolean DEFAULT TRUE
 );
 
+DROP TABLE IF EXISTS role;
+
+CREATE TABLE role (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  userrole VARCHAR(250) NOT NULL
+
+);
+
 DROP TABLE IF EXISTS foodtruck;
 
 CREATE TABLE foodtruck (

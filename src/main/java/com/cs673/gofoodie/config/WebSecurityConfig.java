@@ -30,9 +30,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    System.out.println("Inside WebSEcurityConfig");
     UserDetailsService userDetailsService = jpaUserDetails();
-    auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
 
+    auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
+    System.out.println("auth="+auth);
   }
 
   @Override
@@ -46,12 +48,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers("/foodtrucks/**").permitAll()
         .antMatchers("/showFoodTruckDetails").permitAll()
         .antMatchers("/showFoodTruckDetails/**").permitAll()
+        .antMatchers("/listAvailableSpots").permitAll()
+        .antMatchers("/listAvailableSpots/**").permitAll()
         .anyRequest().authenticated()
         .and()
-        .csrf().disable().formLogin()
-        .successHandler(customizeAuthenticationSuccessHandler).loginPage("/login")
-        .failureUrl("/login?error=true").usernameParameter("email").passwordParameter("password").and().logout()
-        .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/").and()
+        .csrf().disable()
+        .formLogin()
+          .successHandler(customizeAuthenticationSuccessHandler)
+          .loginPage("/login")
+          .failureUrl("/login?error=true")
+           .usernameParameter("email")
+           .passwordParameter("password")
+
+        .and()
+        .logout()
+          .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/").and()
         .exceptionHandling().and().headers().frameOptions().sameOrigin();
   }
 
