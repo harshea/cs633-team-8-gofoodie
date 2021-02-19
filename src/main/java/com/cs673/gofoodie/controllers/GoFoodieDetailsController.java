@@ -1,8 +1,14 @@
 package com.cs673.gofoodie.controllers;
 
+import com.cs673.gofoodie.models.FoodTruckDetails;
+import com.cs673.gofoodie.models.Location;
+import com.cs673.gofoodie.models.Reviews;
 import com.cs673.gofoodie.models.User;
+import com.cs673.gofoodie.repositories.FoodTruckDetailsRepository;
 import com.cs673.gofoodie.repositories.FoodTruckRepository;
 import com.cs673.gofoodie.services.CustomUserDetailsService;
+import java.util.Optional;
+import java.util.Set;
 import org.springframework.stereotype.Controller;
 
 import java.util.Date;
@@ -27,6 +33,9 @@ public class GoFoodieDetailsController {
   @Autowired
   private FoodTruckRepository foodTruckRepository;
 
+  @Autowired
+  private FoodTruckDetailsRepository foodTruckDetailsRepository;
+
   @RequestMapping(value = "/foodtrucks", method = RequestMethod.GET)
   public ModelAndView getFoodTrucks() {
     ModelAndView modelAndView = new ModelAndView();
@@ -45,10 +54,31 @@ public class GoFoodieDetailsController {
     ModelAndView modelAndView = new ModelAndView();
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     User user = userService.findUserByEmail(auth.getName());
+    System.out.println("showFoodTruckDetails input param : id =:"+id);
+    Optional<FoodTruckDetails> fd =foodTruckDetailsRepository.findById(id);
+    System.out.println("foodTruckDetailsRepository fd:"+fd.get());
+
+    System.out.println("foodTruckDetailsRepository location:"+fd.get().getLocation().getLocationName());
+    System.out.println("foodTruckDetailsRepository hours:"+fd.get().getHours());
+    System.out.println("foodTruckDetailsRepository phone:"+fd.get().getPhoneNumbers());
+
+    Location location = fd.get().getLocation();
+    StringBuffer locationBuffer = new StringBuffer();
+    locationBuffer.append(location.getLocationAddress()
+        +","+location.getLocationCity()
+        +" "+location.getLocationState()+" "+location.getLocationZip());
+    Set<Reviews> reviews = fd.get().getReviews();
+    StringBuffer reviewBuf = new StringBuffer();
+    for (Reviews rv : reviews){
+      reviewBuf.append(rv.getReviewerName() + " ( "+rv.getReviewerPoints()+" ) ");
+    }
+    System.out.println("foodTruckDetailsRepository rv:"+reviewBuf.toString());
     modelAndView.addObject("currentUser", user);
     modelAndView.addObject("fullName", "Welcome " + user.getEmail());
     modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
-    modelAndView.addObject("showFoodTruckDetails", foodTruckRepository.findById(id).orElse(null));
+    modelAndView.addObject("showFoodTruckDetails", fd.get());
+    modelAndView.addObject("location", locationBuffer.toString());
+    modelAndView.addObject("reviews", reviewBuf.toString());
     modelAndView.setViewName("showFoodTruckDetails");
     return modelAndView;
   }

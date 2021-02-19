@@ -6,40 +6,49 @@
       layout:decorate="default">
 <head>
   <title>GoFoodie Details </title>
+
 </head>
 <body>
 <div layout:fragment="content" class="row">
   <div class="col-xs-8 col-md-8">
-
+    <img src="images/foodtruck.jpg" alt="FoodTruck" >
     <h2> Food Truck Detail</h2>
     <div class="table-responsive">
       <table class="table" id="foodtruck-table">
         <thead>
         <tr>
-          <th><B>Paratha Junction</B></th>
-          <th><B>Waiting time </B> 30 mins</B></th>
-          <th><B>Distance </B>0.6 miles </th>
+          <th><B>Name  </B>
+          <td th:text="${showFoodTruckDetails.foodTruck.name}"></td>
+
+        <th><B>Waiting time </B>
+        <td th:text="${showFoodTruckDetails.waitingTime}"></td>
+        </th>
+        <th><B>Distance </B>
+        <td th:text="${showFoodTruckDetails.distance}"></td>
+        </th>
         </tr>
         </thead>
+
+
         <tbody>
-          <tr>
-            <th><B>Address</B></th>
-          <th>: Landess Ave, Milpitas CA 95035</th>
+        <tr>
+          <th><B>Address</B></th>
+          <td th:text="${location}"></td>
         </tr>
 
         <tr>
           <th><B>Hours</B></th>
-          <th>: Open 11 AM</th>
+          <td th:text="${showFoodTruckDetails.hours}"></td>
         </tr>
 
         <tr>
           <th><B>Phone</B></th>
-          <th>: (111) 222 3333 </th>
+          <td th:text="${showFoodTruckDetails.phoneNumbers}"></td>
         </tr>
 
         <tr>
           <th><B>Reviews from the web</B></th>
-          <th>: Grubhub (4/5) Uber Eats(3/5)</th>
+          <td th:text="${reviews}"></td>
         </tr>
 
 

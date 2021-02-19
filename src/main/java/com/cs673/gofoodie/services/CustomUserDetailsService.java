@@ -1,5 +1,6 @@
 package com.cs673.gofoodie.services;
 
+import com.cs673.gofoodie.config.CustomUserDetails;
 import com.cs673.gofoodie.models.Role;
 import com.cs673.gofoodie.repositories.RoleRepository;
 import com.cs673.gofoodie.repositories.UserRepository;
@@ -46,8 +47,11 @@ public class CustomUserDetailsService implements UserDetailsService {
    * This method is used to create new user in database.
    */
   public void saveUser(User user) {
+    System.out.println("Inside saveUser");
+    System.out.println(" saveUser ="+user);
     user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
     user.setEnabled(true);
+    user.setUserType(user.getUserType());
     //Role userRole = roleRepository.findByRole("ADMIN");
    // user.setRoles(new HashSet<>(Arrays.asList(userRole)));
     userRepository.save(user);
@@ -68,7 +72,7 @@ public class CustomUserDetailsService implements UserDetailsService {
   private List<GrantedAuthority> getUserAuthority(Set<Role> userRoles) {
     Set<GrantedAuthority> roles = new HashSet<>();
     userRoles.forEach((role) -> {
-      roles.add(new SimpleGrantedAuthority(role.getRole()));
+      roles.add(new SimpleGrantedAuthority(role.getUserRole()));
     });
 
     List<GrantedAuthority> grantedAuthorities = new ArrayList<>(roles);
@@ -76,7 +80,16 @@ public class CustomUserDetailsService implements UserDetailsService {
   }
 
   private UserDetails buildUserForAuthentication(User user, List<GrantedAuthority> authorities) {
-    return new org.springframework.security.core.userdetails.User(user.getEmail(),
-        user.getPassword(), authorities);
+    System.out.println("Inside buildUserForAuthentication=");
+    //if you don't use authority based security, just add empty set
+    System.out.println(" buildUserForAuthentication="+user.getPassword());
+    CustomUserDetails userDetails = new CustomUserDetails(user.getEmail(), user.getPassword(), authorities);
+
+    //here you can load user's data from DB or from
+    //any other source and do:
+    userDetails.setUserType(user.getUserType());
+    System.out.println("buildUserForAuthentication:userDetails="+userDetails);
+
+    return  userDetails;
   }
 }

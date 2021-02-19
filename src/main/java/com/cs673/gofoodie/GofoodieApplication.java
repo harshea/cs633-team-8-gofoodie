@@ -27,17 +27,17 @@ public class GofoodieApplication {
 
     return args -> {
 
-      Role adminRole = roleRepository.findByRole("ADMIN");
+      Role adminRole = roleRepository.findByUserRole("ADMIN");
       if (adminRole == null) {
         Role newAdminRole = new Role();
-        newAdminRole.setRole("ADMIN");
+        newAdminRole.setUserRole("ADMIN");
         roleRepository.save(newAdminRole);
       }
 
-      Role userRole = roleRepository.findByRole("USER");
+      Role userRole = roleRepository.findByUserRole("USER");
       if (userRole == null) {
         Role newUserRole = new Role();
-        newUserRole.setRole("USER");
+        newUserRole.setUserRole("USER");
         roleRepository.save(newUserRole);
       }
     };

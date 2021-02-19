@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +21,12 @@ public class FoodTruck {
   private String type;
 
   private String distance;
+
+
+
+  @OneToOne
+  @JoinColumn(name="foodTruckId", nullable=false)
+  private FoodTruck foodTruck;
 
   public Long getId() {
     return id;
@@ -51,7 +60,13 @@ public class FoodTruck {
     this.distance = distance;
   }
 
+  public FoodTruck getFoodTruck() {
+    return foodTruck;
+  }
 
+  public void setFoodTruck(FoodTruck foodTruck) {
+    this.foodTruck = foodTruck;
+  }
 
 
 
