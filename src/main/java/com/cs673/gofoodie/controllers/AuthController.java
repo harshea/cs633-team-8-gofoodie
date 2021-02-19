@@ -31,6 +31,7 @@ public class AuthController {
    */
   @RequestMapping(value = "/signup", method = RequestMethod.GET)
   public ModelAndView signup() {
+    System.out.println("*********Inside signup********");
     ModelAndView modelAndView = new ModelAndView();
     User user = new User();
     modelAndView.addObject("user", user);
