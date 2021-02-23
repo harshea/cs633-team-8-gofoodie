@@ -46,3 +46,12 @@ select role0_.id as id1_4_, role0_.userRole as userrole2_4_ from role role0_ whe
 2021-02-17 15:45:37 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ROLE" not found; SQL statement:
 select role0_.id as id1_4_, role0_.userRole as userrole2_4_ from role role0_ where role0_.userRole=? [42102-200]
+2021-02-20 01:40:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ROLE" not found; SQL statement:
+select role0_.id as id1_4_, role0_.userRole as userrole2_4_ from role role0_ where role0_.userRole=? [42102-200]
+2021-02-20 01:40:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ROLE" not found; SQL statement:
+select role0_.id as id1_4_, role0_.userRole as userrole2_4_ from role role0_ where role0_.userRole=? [42102-200]
+2021-02-22 15:10:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ROLE" not found; SQL statement:
+select role0_.id as id1_4_, role0_.userRole as userrole2_4_ from role role0_ where role0_.userRole=? [42102-200]

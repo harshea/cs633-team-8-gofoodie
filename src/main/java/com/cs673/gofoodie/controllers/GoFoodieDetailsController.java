@@ -1,6 +1,7 @@
 package com.cs673.gofoodie.controllers;
 
 import com.cs673.gofoodie.models.FoodTruckDetails;
+import com.cs673.gofoodie.models.FoodTruckMenu;
 import com.cs673.gofoodie.models.Location;
 import com.cs673.gofoodie.models.Reviews;
 import com.cs673.gofoodie.models.User;
@@ -73,12 +74,35 @@ public class GoFoodieDetailsController {
       reviewBuf.append(rv.getReviewerName() + " ( "+rv.getReviewerPoints()+" ) ");
     }
     System.out.println("foodTruckDetailsRepository rv:"+reviewBuf.toString());
+
+    //menu details and offers details
+    FoodTruckMenu foodTruckMenu = fd.get().getFoodTruckMenu();
+    StringBuffer menuBuf = new StringBuffer();
+    menuBuf.append(foodTruckMenu.getItem1()).append(System.lineSeparator());
+    menuBuf.append(foodTruckMenu.getItem2()).append(System.lineSeparator());
+    menuBuf.append(foodTruckMenu.getItem3()).append(System.lineSeparator());
+    menuBuf.append(foodTruckMenu.getItem4()).append(System.lineSeparator());
+    menuBuf.append(foodTruckMenu.getItem5()).append(System.lineSeparator());
+
+    StringBuffer offerBuf = new StringBuffer();
+    offerBuf.append(foodTruckMenu.getOffer1()).append(System.lineSeparator());
+    offerBuf.append(foodTruckMenu.getOffer2()).append(System.lineSeparator());
+
+    System.out.println("foodTruckDetailsRepository menuBuf:"+menuBuf.toString());
+    System.out.println("foodTruckDetailsRepository offerBuf:"+offerBuf.toString());
     modelAndView.addObject("currentUser", user);
     modelAndView.addObject("fullName", "Welcome " + user.getEmail());
     modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
     modelAndView.addObject("showFoodTruckDetails", fd.get());
     modelAndView.addObject("location", locationBuffer.toString());
     modelAndView.addObject("reviews", reviewBuf.toString());
+    modelAndView.addObject("item1", foodTruckMenu.getItem1());
+    modelAndView.addObject("item2", foodTruckMenu.getItem2());
+    modelAndView.addObject("item3", foodTruckMenu.getItem3());
+    modelAndView.addObject("item4", foodTruckMenu.getItem4());
+    modelAndView.addObject("item5", foodTruckMenu.getItem5());
+    modelAndView.addObject("offer1", foodTruckMenu.getOffer1());
+    modelAndView.addObject("offer2", foodTruckMenu.getOffer2());
     modelAndView.setViewName("showFoodTruckDetails");
     return modelAndView;
   }

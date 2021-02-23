@@ -9,8 +9,12 @@
 </head>
 <body>
 <div layout:fragment="content">
+  <!--First section-->
+  <h2>GoFoodie</h2>
+  <div class="container">
+    <img src="images/foodtruck.jpg" alt="GoFoodie" width="1000" height="300">
+  </div>
   <form class="form-signin" th:action="@{/signup}" method="post">
-    <img class="h3 mb-3 font-weight-normal" src="images/foodtruck.jpg" alt="FoodTruck" >
     <h1 class="h3 mb-3 font-weight-normal">Signup Here</h1>
     <div th:if="${param.error}">
       Invalid email and password.
