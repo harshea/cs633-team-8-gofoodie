@@ -48,6 +48,25 @@ public class GoFoodieSpotBookingController {
     User user = userService.findUserByEmail(auth.getName());
     modelAndView.addObject("foodtrucklocation", locationRepository.findById(id).get());
     modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
+    modelAndView.addObject("bookingmessage", "Booking ??");
+    modelAndView.setViewName("showSpotDetails");
+    return modelAndView;
+  }
+
+  @RequestMapping(value = "/bookspot/{id}", method = RequestMethod.GET)
+  public ModelAndView getBookSpot(@PathVariable Long id) {
+    ModelAndView modelAndView = new ModelAndView();
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    User user = userService.findUserByEmail(auth.getName());
+    Location lc = locationRepository.findById(id).get();
+    lc.setAvailableSpots(lc.getAvailableSpots() - 1);
+    locationRepository.save(lc);
+    modelAndView.addObject("foodtrucklocation", locationRepository.findById(id).get());
+    modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
+    modelAndView.setViewName("showSpotDetails");
+
+    modelAndView.addObject("bookingmessage", "Spot booked!!!");
+
     modelAndView.setViewName("showSpotDetails");
     return modelAndView;
   }

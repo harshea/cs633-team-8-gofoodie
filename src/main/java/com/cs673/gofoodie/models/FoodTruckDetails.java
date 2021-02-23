@@ -33,6 +33,8 @@ public class FoodTruckDetails {
 
   private String distance;
 
+  @OneToOne(mappedBy = "foodTruckMenuDetails", cascade = CascadeType.ALL)
+  private FoodTruckMenu foodTruckMenu;
 
   public Long getId() {
     return id;
@@ -96,5 +98,13 @@ public class FoodTruckDetails {
 
   public void setDistance(String distance) {
     this.distance = distance;
+  }
+
+  public FoodTruckMenu getFoodTruckMenu() {
+    return foodTruckMenu;
+  }
+
+  public void setFoodTruckMenu(FoodTruckMenu foodTruckMenu) {
+    this.foodTruckMenu = foodTruckMenu;
   }
 }

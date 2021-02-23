@@ -10,8 +10,13 @@
 </head>
 <body>
 <div layout:fragment="content" class="row">
+  <!--First section-->
+  <div class="container">
+    <img src="../images/foodtruck.jpg" alt="GoFoodie" width="500" height="300">
+  </div>
+
   <div class="col-xs-8 col-md-8">
-    <img src="images/foodtruck.jpg" alt="FoodTruck" >
+
     <h2> Food Truck Detail</h2>
     <div class="table-responsive">
       <table class="table" id="foodtruck-table">
@@ -54,6 +59,23 @@
 
         </tbody>
       </table>
+
+
+    </div>
+    <div class="row">
+      <div class="column" style="background-color:Tomato;">
+        <h2>Today's  Special Menu</h2>
+        <tr><td th:text="${item1}"></td></tr>
+        <tr><td th:text="${item2}"></td></tr>
+        <tr><td th:text="${item3}"></td></tr>
+        <tr><td th:text="${item4}"></td></tr>
+        <tr><td th:text="${item5}"></td></tr>
+      </div>
+      <div class="column" style="background-color:Orange;">
+        <h2>Offers</h2>
+        <tr><td th:text="${offer1}"></td></tr>
+        <tr><td th:text="${offer2}"></td></tr>
+      </div>
     </div>
   </div>
 </div>

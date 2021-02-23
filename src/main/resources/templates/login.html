@@ -8,13 +8,19 @@
   <title>Login</title>
 </head>
 <body class="text-center">
+
+
 <div layout:fragment="content">
 
-  <form class="form-signin" th:action="@{/login}" method="post">
-    <img class="h3 mb-3 font-weight-normal" src="images/foodtruck.jpg" alt="FoodTruck" >
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in
+  <!--First section-->
+  <h2>GoFoodie</h2>
 
-    </h1>
+  <div class="container">
+    <img src="images/foodtruck.jpg" alt="GoFoodie" width="500" height="300"
+  </div>
+  <form class="form-signin" th:action="@{/login}" method="post">
+    <!--img src="images/foodtruck.jpg" alt="FoodTruck" -->
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <div th:if="${param.error}">
       Invalid email and password.
     </div>
