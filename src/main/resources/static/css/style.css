@@ -63,3 +63,8 @@ body {
 * {
   box-sizing: border-box;
 }
+.centerImage {
+  text-align:center;
+  display: inline-block;
+  padding-left: 5000px;
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - GofoodieApplicationTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>GofoodieApplicationTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.cs673.gofoodie.html">com.cs673.gofoodie</a> &gt; GofoodieApplicationTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.171s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">contextLoads()</td>
+<td class="success">0.171s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.4.2)
+
+Hibernate: drop table if exists FOODTRUCK CASCADE 
+Hibernate: drop table if exists FOODTRUCKDETAILS CASCADE 
+Hibernate: drop table if exists FOODTRUCKMENU CASCADE 
+Hibernate: drop table if exists LOCATION CASCADE 
+Hibernate: drop table if exists REVIEWS CASCADE 
+Hibernate: drop table if exists role CASCADE 
+Hibernate: drop table if exists user CASCADE 
+Hibernate: drop table if exists users_roles CASCADE 
+Hibernate: drop sequence if exists hibernate_sequence
+Hibernate: create sequence hibernate_sequence start with 1 increment by 1
+Hibernate: create table FOODTRUCK (id bigint not null, distance varchar(255), name varchar(255), type varchar(255), foodTruckId bigint not null, primary key (id))
+Hibernate: create table FOODTRUCKDETAILS (id bigint not null, distance varchar(255), hours varchar(255), phoneNumbers varchar(255), waitingTime varchar(255), primary key (id))
+Hibernate: create table FOODTRUCKMENU (id bigint not null, item1 varchar(255), item2 varchar(255), item3 varchar(255), item4 varchar(255), item5 varchar(255), offer1 varchar(255), offer2 varchar(255), foodTruckId bigint not null, primary key (id))
+Hibernate: create table LOCATION (id bigint not null, availableSpots integer, locality varchar(255), locationAddress varchar(255), locationCity varchar(255), locationName varchar(255), locationState varchar(255), locationZip varchar(255), popularity varchar(255), totalSpots integer, foodTruckId bigint not null, primary key (id))
+Hibernate: create table REVIEWS (id bigint not null, reviewerName varchar(255), reviewerPoints varchar(255), foodTruckId bigint not null, primary key (id))
+Hibernate: create table role (id bigint not null, userRole varchar(255), primary key (id))
+Hibernate: create table user (id bigint not null, email varchar(255), enabled boolean, password varchar(255), userType varchar(255), primary key (id))
+Hibernate: create table users_roles (user_id bigint not null, role_id bigint not null, primary key (user_id, role_id))
+Hibernate: alter table FOODTRUCK add constraint FKrui7a2jnuo92sdsnmsgmbsxhy foreign key (foodTruckId) references FOODTRUCK
+Hibernate: alter table FOODTRUCKMENU add constraint FKcd6x97lifbfca4ndmqptl9n foreign key (foodTruckId) references FOODTRUCKDETAILS
+Hibernate: alter table LOCATION add constraint FKjyves34dcqyiqp6a5r5364kv3 foreign key (foodTruckId) references FOODTRUCKDETAILS
+Hibernate: alter table REVIEWS add constraint FKfsnl8pj5yjoi2or03soye9wr2 foreign key (foodTruckId) references FOODTRUCKDETAILS
+Hibernate: alter table users_roles add constraint FKt4v0rrweyk393bdgt107vdx0x foreign key (role_id) references role
+Hibernate: alter table users_roles add constraint FKgd3iendaoyh04b95ykqise6qh foreign key (user_id) references user
+Inside WebSEcurityConfig
+auth=org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter$2@3af1e050
+Hibernate: select role0_.id as id1_5_, role0_.userRole as userrole2_5_ from role role0_ where role0_.userRole=?
+Hibernate: call next value for hibernate_sequence
+Hibernate: insert into role (userRole, id) values (?, ?)
+Hibernate: select role0_.id as id1_5_, role0_.userRole as userrole2_5_ from role role0_ where role0_.userRole=?
+Hibernate: call next value for hibernate_sequence
+Hibernate: insert into role (userRole, id) values (?, ?)
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>[Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cs673.gofoodie.GofoodieApplicationTests], using SpringBootContextLoader
+[Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.cs673.gofoodie.GofoodieApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+[Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.cs673.gofoodie.GofoodieApplicationTests]: GofoodieApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.cs673.gofoodie.GofoodieApplication for test class com.cs673.gofoodie.GofoodieApplicationTests
+[Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3ca8e649, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2d412656, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@6e5c376e, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@2eebfc54, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@558acd6e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@71dd321f, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7e358c0d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@f4dc6c3, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@c2f8bf9, org.springframework.test.context.event.EventPublishingTestExecutionListener@147a0da9, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@467dbecf, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@27e7131d, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@57e7345b, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@13347c4b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@38143324, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@27f4a0c0, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@495f0d89]
+[Test worker] INFO com.cs673.gofoodie.GofoodieApplicationTests - Starting GofoodieApplicationTests using Java 11.0.4 on ashwinih-macbookpro2.roam.corp.google.com with PID 29138 (started by ashwinih in /Users/ashwinih/Downloads/gofoodie)
+[Test worker] INFO com.cs673.gofoodie.GofoodieApplicationTests - No active profile set, falling back to default profiles: default
+[Test worker] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[Test worker] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[Test worker] INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cs673.gofoodie.repositories.FoodTruckDetailsRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[Test worker] INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cs673.gofoodie.repositories.FoodTruckRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[Test worker] INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cs673.gofoodie.repositories.LocationRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[Test worker] INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cs673.gofoodie.repositories.RoleRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[Test worker] INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cs673.gofoodie.repositories.UserRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[Test worker] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 41 ms. Found 0 JDBC repository interfaces.
+[Test worker] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[Test worker] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[Test worker] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 5 JPA repository interfaces.
+[Test worker] INFO com.zaxxer.hikari.HikariDataSource - gofoodiedb - Starting...
+[Test worker] INFO com.zaxxer.hikari.HikariDataSource - gofoodiedb - Start completed.
+[2021-02-23 16:33:22.290] - 29138 INFO [Test worker] --- org.hibernate.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+[2021-02-23 16:33:22.360] - 29138 INFO [Test worker] --- org.hibernate.Version: HHH000412: Hibernate ORM core version 5.4.27.Final
+[2021-02-23 16:33:22.553] - 29138 INFO [Test worker] --- org.hibernate.annotations.common.Version: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2021-02-23 16:33:22.708] - 29138 INFO [Test worker] --- org.hibernate.dialect.Dialect: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+[2021-02-23 16:33:23.875] - 29138 INFO [Test worker] --- org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[Test worker] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[Test worker] WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/resources/**'] with []
+[Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+[Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/css/**'] with []
+[Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/js/**'] with []
+[Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/images/**'] with []
+[Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12516bd, org.springframework.security.web.context.SecurityContextPersistenceFilter@775a680b, org.springframework.security.web.header.HeaderWriterFilter@7a988ec4, org.springframework.security.web.authentication.logout.LogoutFilter@59dddf06, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@626a7d84, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@42841d03, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@77c2ac59, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@13029a9, org.springframework.security.web.session.SessionManagementFilter@2ac712cf, org.springframework.security.web.access.ExceptionTranslationFilter@7d182d08, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@384440de]
+[Test worker] INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[Test worker] INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:gofoodiedb'
+[Test worker] INFO com.cs673.gofoodie.GofoodieApplicationTests - Started GofoodieApplicationTests in 7.75 seconds (JVM running for 9.41)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.7.1</a> at Feb 23, 2021, 4:33:28 PM</p>
+</div>
+</div>
+</body>
+</html>
