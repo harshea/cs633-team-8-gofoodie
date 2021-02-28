@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+<head>
+  <title>GoFoodie Details </title>
+</head>
+<body>
+<div layout:fragment="content" class="row">
+  <!--First section-->
+  <h2>GoFoodie</h2>
+  <div class="container">
+    <img src="images/foodtruck.jpg" alt="GoFoodie" width="500" height="300"/>
+  </div>
+
+  <div class="col-xs-8 col-md-8"><h2>Nearby Food Trucks</h2>
+    <div class="table-responsive">
+      <table class="table" id="foodtruck-table">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Distance</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="foodtruck : ${foodtrucks}">
+          <td><a th:text="${foodtruck.name}" th:href="@{'/foodtrucks/showFoodTruckDetails/' + ${foodtruck.id}}"></a></td>
+          <td th:text="${foodtruck.type}"></td>
+          <td th:text="${foodtruck.distance}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>

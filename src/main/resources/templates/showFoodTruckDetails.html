@@ -12,7 +12,7 @@
 <div layout:fragment="content" class="row">
   <!--First section-->
   <div class="container">
-    <img src="../images/foodtruck.jpg" alt="GoFoodie" width="500" height="300">
+    <img src="../static/images/foodtruck.jpg" alt="GoFoodie" width="500" height="300">
   </div>
 
   <div class="col-xs-8 col-md-8">
@@ -63,7 +63,7 @@
 
     </div>
     <div class="row">
-      <div class="column" style="background-color:Tomato;">
+      <div class="column" style="background-color: #3f649e">
         <h2>Today's  Special Menu</h2>
         <tr><td th:text="${item1}"></td></tr>
         <tr><td th:text="${item2}"></td></tr>
@@ -71,10 +71,10 @@
         <tr><td th:text="${item4}"></td></tr>
         <tr><td th:text="${item5}"></td></tr>
       </div>
-      <div class="column" style="background-color:Orange;">
+      <div class="column" style="background-color:#672788;">
         <h2>Offers</h2>
-        <tr><td th:text="${offer1}"></td></tr>
-        <tr><td th:text="${offer2}"></td></tr>
+        <tr><td th:text="${offer1}" th:width="500"></td></tr>
+        <tr><td th:text="${offer2}" th:width="500"></td></tr>
       </div>
     </div>
   </div>

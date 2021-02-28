@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+<head>
+  <title>List of Spots </title>
+
+</head>
+<body>
+<div layout:fragment="content" class="row">
+  <!--First section-->
+  <h2>GoFoodie</h2>
+  <div class="container">
+
+    <img src="images/foodtruck.jpg" class ="centerImage" alt="GoFoodie" width="500" height="300"/>
+  </div>
+
+  <div class="col-xs-15 col-md-15">
+     <h2>List of Available FoodTruck Spots</h2>
+    <div class="table-responsive">
+      <table class="table" id="foodtruck-table">
+        <thead>
+        <tr>
+          <th>Address</th>
+          <th>Locality</th>
+          <th>Popularity</th>
+          <th>Total Spots</th>
+          <th>Available Spots </th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="ftlocations : ${foodtrucklocations}">
+          <td><a th:text="${ftlocations.locationAddress}" th:href="@{'/listAvailableSpots/showSpotDetails/' + ${ftlocations.id}}"></a></td>
+          <td th:text="${ftlocations.locality}"></td>
+          <td th:text="${ftlocations.popularity}"></td>
+          <td th:text="${ftlocations.totalSpots}"></td>
+          <td th:text="${ftlocations.availableSpots}"></td>
+        </tr>
+
+        <tr>
+          <td> <a href="/listAvailableSpots/showSpotDetails/">1558 Gladding Ct, Milpitas CA</a></td>
+          <td>Residential</td>
+          <td>Indian</td>
+          <td>10</td>
+          <td>1</td>
+
+        </tr>
+        <tr>
+          <td><a href="/listAvailableSpots/showSpotDetails/">3520 Cisco way, SanJose CA</a></td>
+          <td>Commercial</td>
+          <td>American/Asian</td>
+          <td>5</td>
+          <td>1</td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>

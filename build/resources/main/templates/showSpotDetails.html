@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+<head>
+  <title>GoFoodie Details </title>
+</head>
+<body>
+<div layout:fragment="content" class="row">
+  <!--First section-->
+  <h2>GoFoodie</h2>
+  <div class="container">
+    <img src="../images/foodtruck.jpg" alt="GoFoodie" width="500" height="300">
+  </div>
+
+  <div class="col-xs-8 col-md-8">
+
+    <h2> FoodTruck Spot Detail</h2>
+    <div class="table-responsive">
+      <table class="table" id="spot-table">
+        <thead>
+        <tr>
+          <th><B>Address/Landmark  </B>
+
+          <th><B>Popularity </B>
+
+          <th><B>Busy Hours </B>
+
+          </th>
+
+        </tr>
+        </thead>
+
+
+        <tbody>
+        <tr>
+          <td th:text="${foodtrucklocation.locationAddress}"></td>
+          <td th:text="${foodtrucklocation.popularity}"></td>
+
+          <td>11 am - 2 pm</td>
+        </tr>
+        <tr>
+          <td>
+
+          <form class="form-showspotdetails" th:action="@{'/bookspot/' + ${foodtrucklocation.id}}" method="get">
+          <button class="btn btn-md btn-success btn-block" type="Submit" onsubmit="alert('Spot Booked !!!');">Book Now</button>
+
+          </form>
+          <td th:text="${bookingmessage}"></td>
+          </td>
+        </tr>
+
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>
