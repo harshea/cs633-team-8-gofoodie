@@ -1,3 +1,1 @@
-# cs633-team-8-gofoodie
-baseline for gofoodie
-This web application develped using spring boot and h2 database.
+GoFoodie is a tool to manage food truck locations for owners and provide information to the registered customers as per their location.
